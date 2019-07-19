@@ -1,11 +1,15 @@
 <template>
     <div class="icons">
-      <div class="icon" v-for="item of iconList" :key="item.id">
-        <div class="icon-img">
-          <img class="icon-img-content" :src="item.iconUrl"/>
-        </div>
-        <p class="icon-desc">{{item.title}}</p>
-      </div>
+      <swiper >
+        <swiper-slide v-for="(page,index) of pages" :key="index">
+            <div class="icon" v-for="item of page" :key="item.id">
+                <div class="icon-img">
+                    <img class="icon-img-content" :src="item.iconUrl"/>
+                </div>
+                <p class="icon-desc">{{item.title}}</p>
+            </div>
+        </swiper-slide>
+      </swiper>
     </div>
 </template>
 <script>
@@ -45,18 +49,34 @@ export default {
                 id:'008',
                 iconUrl:'https://imgs.qunarzz.com/piao/fusion/1803/b8/c5dcdb58deec2402.png',
                 title:'西溪湿地'
+            },{
+                id:'009',
+                iconUrl:'https://imgs.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png',
+                title:'景点门票'
             }]
+        }
+    },
+    computed:{
+        pages () {
+            const pages = []
+            this.iconList.forEach((item,index)=>{
+                const page=Math.floor(index / 8)
+                if (!pages[page]){
+                    pages[page] = []
+                }
+                pages[page].push(item)
+            })
+            return pages
         }
     }
 }
 </script>
 <style lang='stylus' scoped>
-@import '~styles/varibles.styl'
-  .icons
-    width:100%
-    overflow:hidden
-    height:0
-    padding-bottom:50%
+    @import '~styles/varibles.styl'
+    @import '~styles/mixins.styl'
+    .icons >>> .swiper-container
+      height:0
+      padding-bottom:50%
     .icon
       position:relative
       overflow:hidden
@@ -65,7 +85,7 @@ export default {
       width:25%
       padding-bottom:25%
       .icon-img 
-        position:absolute;
+        position:absolute
         top:0
         left:0
         right:0
@@ -85,4 +105,5 @@ export default {
         height:.44rem
         text-align:center
         color:$darkTextColor
+        ellipsis()
 </style>
