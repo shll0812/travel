@@ -2,7 +2,7 @@
     <div>
         <div class="title">周末去哪儿</div>
         <ul>
-            <li class="item border-bottom" v-for="(item,index) of recommendList" :key="index">
+            <li class="item border-bottom" v-for="(item,index) of weekendList" :key="index">
                 <div class="item-img-wrapper">
                     <img class="item-img"  :src='item.imgUrl'/>
                 </div>
@@ -19,7 +19,7 @@ export default {
     name: 'HomeWeekend',
     data () {
         return {
-            recommendList:[{
+            weekendList:[{
                 id:'001',
                 imgUrl:'http://img1.qunarzz.com/sight/source/1811/52/b6776b49d27025.jpg_r_640x214_35ae205c.jpg',
                 title:'杭州必打卡',
@@ -42,7 +42,6 @@ export default {
 <style lang="stylus" scoped>
 @import '~styles/mixins.styl'
 .title
-    margin-top:.2rem
     line-height:.8rem
     background:#eee
     text-indent:.2rem
