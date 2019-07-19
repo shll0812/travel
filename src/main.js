@@ -7,9 +7,14 @@ import fastClick from 'fastclick'//300ms延迟问题，
 import 'styles/reset.css'
 import 'styles/border.css'//1px像素问题
 import './assets/styles/iconfont.css'
+import VueAwesomeSwiper from 'vue-awesome-swiper'
+import 'swiper/dist/css/swiper.css'
+
 
 Vue.config.productionTip = false
 fastClick.attach(document.body)
+Vue.use(VueAwesomeSwiper)
+
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
