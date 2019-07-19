@@ -1,6 +1,6 @@
 <template>
     <div class="icons">
-      <swiper >
+      <swiper :options="swiperOption">
         <swiper-slide v-for="(page,index) of pages" :key="index">
             <div class="icon" v-for="item of page" :key="item.id">
                 <div class="icon-img">
@@ -15,45 +15,14 @@
 <script>
 export default {
     name:'HomeIcons',
-    data (){
+    props:{
+        iconList:Array
+    },
+    data () {
         return {
-            iconList:[{
-                id:'001',
-                iconUrl:'https://imgs.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png',
-                title:'景点门票'
-            },{
-                id:'002',
-                iconUrl:'https://imgs.qunarzz.com/piao/fusion/1803/17/99402a22ce4af302.png',
-                title:'西湖'
-            },{
-                id:'003',
-                iconUrl:'https://imgs.qunarzz.com/piao/fusion/1804/ff/fdf170ee89594b02.png',
-                title:'杭州必游'
-            },{
-                id:'004',
-                iconUrl:'https://imgs.qunarzz.com/piao/fusion/1803/75/eca3ce656c886502.png',
-                title:'漂流'
-            },{
-                id:'005',
-                iconUrl:'https://imgs.qunarzz.com/piao/fusion/1803/17/99402a22ce4af302.png',
-                title:'印象西湖'
-            },{
-                id:'006',
-                iconUrl:'https://imgs.qunarzz.com/piao/fusion/1803/75/eca3ce656c886502.png',
-                title:'千岛湖'   
-            },{
-                id:'007',
-                iconUrl:'https://imgs.qunarzz.com/piao/fusion/1803/3e/86314b2af03b7502.png',
-                title:'浪浪浪水公园'
-            },{
-                id:'008',
-                iconUrl:'https://imgs.qunarzz.com/piao/fusion/1803/b8/c5dcdb58deec2402.png',
-                title:'西溪湿地'
-            },{
-                id:'009',
-                iconUrl:'https://imgs.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png',
-                title:'景点门票'
-            }]
+            swiperOption:{
+                autoplay:false
+            }
         }
     },
     computed:{

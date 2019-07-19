@@ -2,7 +2,7 @@
     <div>
         <div class="title">热销推荐</div>
         <ul>
-            <li class="item border-bottom" v-for="(item,index) of recommendList" :key="index">
+            <li class="item border-bottom" v-for="(item,index) of list" :key="index">
             
                 <img class="item-img"  :src='item.imgUrl'/>
 
@@ -18,25 +18,8 @@
 <script>
 export default {
     name: 'HomeRecommend',
-    data () {
-        return {
-            recommendList:[{
-                id:'001',
-                imgUrl:'https://imgs.qunarzz.com/sight/p0/1907/fe/fe656739f7f059c1a3.water.jpg_200x200_7dcc862c.jpg',
-                title:'西溪国家湿地公园',
-                desc:'乘船游览，深入体验江南水乡特色，很不错的景色！游船工作人员很认真负责任。'
-            },{
-                id:'002',
-                imgUrl:'http://img1.qunarzz.com/sight/p0/1907/40/401b7b735008f7f4a3.img.jpg_200x200_10ce515e.jpg',
-                title:'西溪国家湿地公园',
-                desc:'乘船游览，深入体验江南水乡特色，很不错的景色！游船工作人员很认真负责任。'
-            },{
-                id:'003',
-                imgUrl:'http://img1.qunarzz.com/sight/p0/1810/cc/cc47164357acbeb5a3.water.jpg_200x200_151f0405.jpg',
-                title:'西溪国家湿地公园',
-                desc:'乘船游览，深入体验江南水乡特色，很不错的景色！游船工作人员很认真负责任。'
-            }]
-        }
+    props:{
+        list:Array
     }
 }
 </script>
